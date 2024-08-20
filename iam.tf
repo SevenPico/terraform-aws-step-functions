@@ -10,7 +10,7 @@ locals {
     module.logs_label.enabled ? [data.aws_iam_policy_document.logs[0].json] : []
   )
 
-  use_fullname = var.role_name ? false : true
+  use_fullname = var.role_name == null
 }
 
 

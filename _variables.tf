@@ -100,6 +100,7 @@ variable "use_fullname" {
 variable "role_name" {
   type = string
   description = "Custom name for step function's IAM role"
+  default = null
 }
 
 variable "principals" {
