@@ -52,3 +52,9 @@ resource "aws_cloudwatch_log_group" "logs" {
 
   tags = module.logs_label.tags
 }
+
+resource "aws_cloudwatch_log_stream" "log_streams" {
+  for_each       = toset(local.create_aws_cloudwatch_log_group && local.logging_enabled ? var.cloudwatch_log_stream_names : [])
+  name           = each.value
+  log_group_name = aws_cloudwatch_log_group.logs[0].name
+}

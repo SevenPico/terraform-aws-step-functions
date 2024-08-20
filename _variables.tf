@@ -97,6 +97,11 @@ variable "use_fullname" {
   EOT
 }
 
+variable "role_name" {
+  type = string
+  description = "Custom name for step function's IAM role"
+}
+
 variable "principals" {
   type        = map(list(string))
   description = "Map of service name as key and a list of ARNs to allow assuming the role as value (e.g. map(`AWS`, list(`arn:aws:iam:::role/admin`)))"
@@ -158,4 +163,10 @@ variable "tags_enabled" {
   type        = string
   description = "Enable/disable tags on IAM roles and policies"
   default     = true
+}
+
+variable "cloudwatch_log_stream_names" {
+  type        = list(string)
+  description = "List of logstream names for step function's default log group."
+  default     = []
 }
