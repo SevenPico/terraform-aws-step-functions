@@ -102,7 +102,7 @@ module "step_function" {
   role_description                       = "${module.context.id} role"
   role_path                              = "/"
   role_permissions_boundary              = null
-  role_name = "custom-role"
+  role_name                              = "custom-role"
   logging_configuration                  = local.logging_configuration
   definition                             = local.definition
   policy_description                     = "${module.context.id} role policy"
