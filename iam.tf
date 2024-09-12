@@ -9,6 +9,8 @@ locals {
     var.policy_documents,
     module.logs_label.enabled ? [data.aws_iam_policy_document.logs[0].json] : []
   )
+
+  use_fullname = var.role_name == null
 }
 
 
@@ -45,5 +47,6 @@ module "iam_role" {
   role_description         = var.role_description
   tags                     = module.context.tags
   tags_enabled             = var.tags_enabled
-  use_fullname             = var.use_fullname
+  name                     = var.role_name
+  use_fullname             = local.use_fullname
 }

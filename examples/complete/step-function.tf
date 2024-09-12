@@ -98,9 +98,11 @@ module "step_function" {
   cloudwatch_log_group_name              = null
   cloudwatch_log_group_retention_in_days = 90
   cloudwatch_log_group_kms_key_id        = null
+  cloudwatch_log_stream_names            = ["emf"]
   role_description                       = "${module.context.id} role"
   role_path                              = "/"
   role_permissions_boundary              = null
+  role_name                              = "custom-role"
   logging_configuration                  = local.logging_configuration
   definition                             = local.definition
   policy_description                     = "${module.context.id} role policy"
